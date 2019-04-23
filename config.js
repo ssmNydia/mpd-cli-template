@@ -3,18 +3,18 @@
 * @title: 
 * @Date:   2019-04-23 16:07:22
 * @Last Modified by:   shl
-* @Last Modified time: 2019-04-23 16:13:37
+* @Last Modified time: 2019-04-23 16:31:08
 */
 module.exports = {
   name: {
       type: 'string',
-      default: 'mip-project',
+      default: 'mpd-project',
       message: '项目名称',
   },
   description: {
       type: 'string',
       message: '项目描述',
-      default: 'A MIP project',
+      default: 'A mpd project',
   },
   author: {
       type: 'string',
