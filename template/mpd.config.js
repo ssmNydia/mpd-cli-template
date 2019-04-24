@@ -7,7 +7,27 @@ module.exports = {
    * 启动 web和H5同步开发模式
    * @type {Boolean} 默认为false
    */
-  isH5: false,  
+  isH5: false,
+  /**
+   * 第三方库引入
+   * @type {Array}
+   */
+  plugins:{
+    /**
+     * 所有页面都引入的库
+     * @type {Array}
+     */
+    common:[
+        {name:'jQuery',version:'3.4.0'}
+    ],
+    /**
+     * 指定页面引入库
+     * @type {Array}
+     */
+    assign:[
+        {name:'iosSelect',version:'',pages:['index']}
+    ]
+  },
   dev:{
     /**
      * 启用代理 启用代理需要配置 proxy
