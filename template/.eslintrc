@@ -6,7 +6,8 @@
     "jsdoc"
   ],
   "env": {
-    "browser": true
+    "browser": true,
+    "jquery": true
   },
   "rules": {
     "jsdoc/check-param-names": 1,
@@ -25,5 +26,6 @@
     "jsdoc/require-returns-type": 1,
     "jsdoc/valid-types": 1,
     "no-var": 2
-  }
+  },
+  "parser":"babel-eslint"
 }
