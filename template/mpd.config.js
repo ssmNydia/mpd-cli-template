@@ -4,7 +4,7 @@
 */
 module.exports = {
   /**
-   * 启动 web和H5同步开发模式
+   * 启动 web和H5同步开发模式 暂无效
    * @type {Boolean} 默认为false
    */
   isH5: false,
@@ -17,25 +17,32 @@ module.exports = {
      * 所有页面都引入的库
      * @type {Array}
      */
-    common:[
-        {name:'jQuery',version:'3.4.0'}
+    global:[
+        /* 直接填入需要引入库的路径 */
+        'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
     ],
     /**
      * 指定页面引入库
      * @type {Array}
      */
     assign:[
-        {name:'iosSelect',version:'',pages:['index']}
+        {
+            pages:['index'],
+            urls:[
+                'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css',
+                'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js'
+            ]
+        }
     ]
   },
   dev:{
     /**
-     * 启用代理 启用代理需要配置 proxy
+     * 启用代理 启用代理需要配置 proxy 暂无效
      * @type {Boolean} 默认false
      */
     openProxy: true,
     /**
-     * 设置代理对应关系
+     * 设置代理对应关系 暂无效
      * @type {Object}
      */
     proxy:{
@@ -67,22 +74,27 @@ module.exports = {
      */
     clean: false,
     /**
-     * 启用HTML压缩
+     * 启用HTML压缩 暂无效
      * @type {Boolean} 默认false
      */
     openMinify: false,
     /**
+     * 项目目录
+     * @type {String} 默认根目录无需填写
+     */
+    dir:'',
+    /**
      * 设置打包目录名称
      * @type {String} 默认dist
      */
-    dir:'assets',
+    output:'dist',
     /**
-     * 对应的公开 资源URL
+     * 对应的公开 资源URL 暂无效
      * @type {String}
      */
     publicPath: '',
     /**
-     * 对应的公开 访问URL
+     * 对应的公开 访问URL 暂无效
      * @type {String}
      */
     publicUrl: ''
