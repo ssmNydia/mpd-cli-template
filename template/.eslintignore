@@ -1,3 +1,5 @@
 dist
 assets/lib
 node_modules
+mpd.config.js
+router.js

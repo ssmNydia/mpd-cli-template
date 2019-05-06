@@ -3,8 +3,6 @@
   "version": "0.0.1",
   "description": "{{ description }}",
   "scripts": {
-    "lint": "npm run lint:js",
-    "lint:js": "eslint --ext .js .",
     "fix": "npm run fix:js",
     "fix:js": "eslint --ext .js . --fix"
   },
