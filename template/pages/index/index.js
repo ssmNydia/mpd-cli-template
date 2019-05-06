@@ -1,8 +1,5 @@
-/*
-* @Author: 
-* @Date:   
-* @Last Modified by
-* @Last Modified time
-*/
+/**
+ * @title {n}
+ */
 require('@/index')
 require('./index.less')
