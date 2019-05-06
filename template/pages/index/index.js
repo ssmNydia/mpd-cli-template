@@ -1,5 +1,5 @@
 /**
  * @title {n}
  */
-require('@/index')
+require('@/common')
 require('./index.less')
