@@ -37,16 +37,22 @@ module.exports = {
   },
   dev:{
     /**
-     * 启用代理 启用代理需要配置 proxy 暂无效
+     * 启用代理 启用代理需要配置 proxy
      * @type {Boolean} 默认false
      */
     openProxy: true,
     /**
-     * 设置代理对应关系 暂无效
+     * 设置代理对应关系
      * @type {Object}
      */
     proxy:{
-      '/api':'http://api.mpd-cli.com/'
+      '/api': {
+        target: 'http://api.mpd-cli.com/',
+        changeOrigin: true,
+        pathRewrite: { 
+            '^/api': ' '
+        }
+      }
     },
     /**
      * 设置 dev服务器端口号
