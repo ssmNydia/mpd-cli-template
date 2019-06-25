@@ -1,5 +1,5 @@
 /**
  * @title {n}
  */
-require('@/common')
-require('./index.less')
+import '@/common'
+import './index.less'
