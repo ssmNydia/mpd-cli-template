@@ -35,6 +35,10 @@ module.exports = {
         }
     ]
   },
+  /*
+  * dev 和 build 拥有一样的可配置项:
+  * dir, output
+   */
   dev:{
     /**
      * 启用代理 启用代理需要配置 proxy
@@ -80,7 +84,12 @@ module.exports = {
      */
     clean: false,
     /**
-     * 启用HTML压缩 暂无效
+     * 导出HTML文件
+     * @type {Boolean} 默认true
+     */
+    outHtml: true,
+    /**
+     * 启用HTML压缩
      * @type {Boolean} 默认false
      */
     openMinify: false,
@@ -95,10 +104,10 @@ module.exports = {
      */
     output:'dist',
     /**
-     * 对应的公开 资源URL 暂无效
-     * @type {String}
+     * 图片资源的发布路径
+     * @type {String} 默认 ../
      */
-    publicPath: '',
+    publicPath: '../',
     /**
      * 对应的公开 访问URL 暂无效
      * @type {String}
