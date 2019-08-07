@@ -3,7 +3,7 @@
 * @title: 
 * @Date:   2019-04-23 16:07:22
 * @Last Modified by:   shl
-* @Last Modified time: 2019-04-24 14:41:35
+* @Last Modified time: 2019-08-05 11:07:37
 */
 module.exports = {
   init:{
@@ -21,6 +21,11 @@ module.exports = {
       type: 'string',
       message: '作者信息',
       default: "yourname"
+    },
+    style: {
+      type: 'string',
+      message: '使用的css语言',
+      default: "scss"
     }
   },
   mini:{
