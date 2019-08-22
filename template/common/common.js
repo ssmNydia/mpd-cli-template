@@ -1,9 +1,5 @@
 /*
-* @Author: shl
-* @title: 
-* @Date:   2019-05-06 16:04:47
-* @Last Modified by:   shl
-* @Last Modified time: 2019-07-25 09:37:13
+* @title: 全局注入
 */
 import 'normalize.css/normalize.css'
-import 'base.scss'
+import './base.scss'

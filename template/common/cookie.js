@@ -1,11 +1,7 @@
 /*
-* @Author: shl
-* @title: 
+* @Author: sansui
 * @Date:   2019-05-06 16:05:07
-* @Last Modified by:   shl
-* @Last Modified time: 2019-07-25 09:38:06
 */
-
 function set (name, value, days, domain) {
   if (typeof domain === 'undefined') {
     domain = window.location.host
