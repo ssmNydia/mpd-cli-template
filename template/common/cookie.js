@@ -1,8 +1,6 @@
 /*
-* @Author: shl
+* @Author: sansui
 * @Date:   2019-05-06 16:05:07
-* @Last Modified by:   shl
-* @Last Modified time: 2019-08-09 14:11:25
 */
 function set (name, value, days, domain) {
   if (typeof domain === 'undefined') {

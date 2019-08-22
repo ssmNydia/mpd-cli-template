@@ -67,19 +67,16 @@ module.exports = {
      * @type {Number} 默认9000
      */
     port: 9100,
-    
     /**
      * 自动刷新监听端口 多开时需要手动修改避免重复
      * @type {Number}
      */
     liveport: 35729,
-
     /**
      * 启用页面自动刷新
      * @type {Boolean} 默认false
      */
     livereload: true,
-
     /**
      * dev服务器启动自动打开页面
      * @type {Boolean} 默认false
@@ -115,17 +112,11 @@ module.exports = {
     output:'dist',
     /**
      * 资源的发布路径
-     * @type {String} 默认 ../
+     * @type {Object} 默认 ../
      */
     publicPath: {
-        js: '../',
-        css: '../',
+        source: '../',
         img: '../'
-    },
-    /**
-     * 对应的公开 访问URL 暂无效
-     * @type {String}
-     */
-    publicUrl: ''
+    }
   }
 }

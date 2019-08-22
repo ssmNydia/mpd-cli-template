@@ -1,17 +1,21 @@
-## 脚手架安装
-
-请确认系统环境符合以下标准：Node.js 8.x+, npm 5.8.0+
-
-```bash
-$ npm i -g mpd-cli
-```
-
 ## 使用说明
 
 安装项目
 
 ```bash
 $ npm i
+```
+
+启动调试服务器，在项目根目录运行
+
+```bash
+$ mpd dev
+```
+
+构建打包项目，在项目根目录运行
+
+```bash
+$ mpd build
 ```
 
 新增页面或组件
@@ -33,18 +37,6 @@ $ mpd add -p -f index
 $ mpd add -p -d index
 ```
 
-启动调试服务器，在项目根目录运行
-
-```bash
-$ mpd dev
-```
-
-构建打包项目，在项目根目录运行
-
-```bash
-$ mpd build
-```
-
 ## mpd.config.js
 
 项目配置说明
@@ -59,10 +51,19 @@ module.exports = {
     /**
      * 所有页面都引入的库
      * @type {Array}
+     * 仅global内支持 字符和对象两种类型
      */
     global:[
         /* 直接填入需要引入库的路径 */
         'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
+        /* 
+        * 或填入对象，可配置 
+        * ishead放置在头部 
+        * islast 放置在所有资源的末尾 
+        * url为引入库路径 
+            e.g:
+            { ishead: true, url: 'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js' },
+        */
     ],
     /**
      * 指定页面引入库
@@ -108,6 +109,12 @@ module.exports = {
     port: 9100,
 
     /**
+     * 自动刷新监听端口 多开时需要手动修改避免重复
+     * @type {Number}
+     */
+    liveport: 35729,
+
+    /**
      * 启用页面自动刷新
      * @type {Boolean} 默认false
      */
@@ -147,10 +154,13 @@ module.exports = {
      */
     output:'dist',
     /**
-     * 图片资源的发布路径
-     * @type {String} 默认 ../
+     * 资源的发布路径
+     * @type {Object} 默认 ../
      */
-    publicPath: '../'
+    publicPath: {
+        source: '../',
+        img: '../'
+    }
   }
 }
 ```
