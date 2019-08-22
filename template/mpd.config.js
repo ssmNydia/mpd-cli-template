@@ -4,11 +4,6 @@
 */
 module.exports = {
   /**
-   * 启动 web和H5同步开发模式 暂无效
-   * @type {Boolean} 默认为false
-   */
-  isH5: false,
-  /**
    * 第三方库引入
    * @type {Array}
    */
@@ -16,10 +11,19 @@ module.exports = {
     /**
      * 所有页面都引入的库
      * @type {Array}
+     * 仅global内支持 字符和对象两种类型
      */
     global:[
         /* 直接填入需要引入库的路径 */
         'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
+        /* 
+        * 或填入对象，可配置 
+        * ishead放置在头部 
+        * islast 放置在所有资源的末尾 
+        * url为引入库路径 
+            e.g:
+            { ishead: true, url: 'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js' },
+        */
     ],
     /**
      * 指定页面引入库
@@ -63,6 +67,12 @@ module.exports = {
      * @type {Number} 默认9000
      */
     port: 9100,
+    
+    /**
+     * 自动刷新监听端口 多开时需要手动修改避免重复
+     * @type {Number}
+     */
+    liveport: 35729,
 
     /**
      * 启用页面自动刷新
@@ -104,10 +114,14 @@ module.exports = {
      */
     output:'dist',
     /**
-     * 图片资源的发布路径
+     * 资源的发布路径
      * @type {String} 默认 ../
      */
-    publicPath: '../',
+    publicPath: {
+        js: '../',
+        css: '../',
+        img: '../'
+    },
     /**
      * 对应的公开 访问URL 暂无效
      * @type {String}
