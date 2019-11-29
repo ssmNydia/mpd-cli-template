@@ -1,6 +1,7 @@
 /*
 * @Author: sansui
 * @Date:   2019-05-06 16:05:07
+* @desc: 引入说明 import cookie from '@/cookie'
 */
 function set (name, value, days, domain) {
   if (typeof domain === 'undefined') {
@@ -39,7 +40,7 @@ function remove (name, domain) {
   set(name, '', -1, domain)
 }
 
-export const cookie = {
+export default {
   set,
   get,
   getBoolean,

@@ -1,33 +1,27 @@
 ## 使用说明
 
-安装项目
+### 创建项目
 
-```bash
+运行 `mpd init`，按提示完成创建；
+
+进入项目后，执行 `npm i` (v.1.0.13-1.0.14版本，无需执行)
+
+``` bash
+$ mpd init
+$ cd 刚才填写的项目名称
 $ npm i
 ```
 
-启动调试服务器，在项目根目录运行
+### 新增页面或组件
 
-```bash
-$ mpd dev
-```
-
-构建打包项目，在项目根目录运行
-
-```bash
-$ mpd build
-```
-
-新增页面或组件
-
-```bash
+``` bash
 # 使用 -p 添加名为 demo的页面
 $ mpd add -p demo
 
 # 使用 -c 添加名为 test的组件
 $ mpd add -c test
 
-# 使用 -r 可以对已有页面进行重命名
+# 使用 -r 可以对已有页面进行重命名 将index 改为 demo
 $ mpd add -p -r index demo
 
 # 使用 -f 可以强制覆盖同名页面
@@ -37,9 +31,72 @@ $ mpd add -p -f index
 $ mpd add -p -d index
 ```
 
+### 启动调试服务器，在项目根目录运行
+
+``` bash
+$ mpd dev
+```
+
+### 构建打包项目，在项目根目录运行
+
+``` bash
+$ mpd build
+```
+
+当出现编译失败时，请根据错误提示，修改相应的文件。当代码符合eslint的规范时，即可成功编译。
+
+# 别名alias
+
+| 别名   | 对应目录          |
+| ------ | ----------------- |
+| @      | common            |
+| 组件名 | components/组件名 |
+
+创建的组件会实时更新到alias，无需重启即可直接引用。
+
+# 引用
+
+请使用 `import`取代`require`来引入资源。
+
+```javascript
+// common 目录内的js引用
+import util from '@/util'
+
+// 组件demo 的引用
+import 'demo'
+```
+
+## 图片资源
+
+### Html
+
+在HTML页面内，打包编译时，仅打包使用以下形式引用图片的图片资源：
+
+```html
+<!-- 预加载的图片 -->
+<link rel="preload" href="/assets/images/demo.png" as="image">
+<!-- 按文件真实路径引用资源 -->
+<img src="../../assets/images/demo.png">
+<!-- 根据调试服务器静态资源配置引用资源 （新增） -->
+<img src="/assets/images/demo.png">
+
+<!-- 打包编译后： -->
+<link rel="preload" href="http://img.dev.cn/images/demo.png" as="image">
+<img src="http://img.dev.cn/images/demo.png">
+<img src="http://img.dev.cn/images/demo.png">
+```
+
+### Css
+
+在样式文件(scss)内，图片应按文件真实路径来引用资源。
+
+
+
 ## mpd.config.js
 
-项目配置说明
+项目的配置。
+
+该配置信息改动后，需要重新运行调试服务器才可生效。
 
 ```javascript
 module.exports = {
@@ -57,7 +114,7 @@ module.exports = {
         /* 直接填入需要引入库的路径 */
         'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
         /* 
-        * 或填入对象，可配置 
+        * 或填入对象，可配置:
         * ishead放置在头部 
         * islast 放置在所有资源的末尾 
         * url为引入库路径 
@@ -103,12 +160,12 @@ module.exports = {
       }
     },
     /**
-     * 设置 dev服务器端口号
-     * @type {Number} 默认9000
+     * 设置 dev服务器端口号 多开时需要手动修改避免重复
+     * @type {Number} 默认9100
      */
     port: 9100,
-
-    /**
+    
+        /**
      * 自动刷新监听端口 多开时需要手动修改避免重复
      * @type {Number}
      */
@@ -154,7 +211,7 @@ module.exports = {
      */
     output:'dist',
     /**
-     * 资源的发布路径
+     * 图片资源的发布路径
      * @type {Object} 默认 ../
      */
     publicPath: {
@@ -169,16 +226,17 @@ module.exports = {
 
 可在 `router.js` 中对项目路由进一步配置，来达到同步线上场景的访问路径。
 
-配置后实时生效，无需重启。
+新增配置实时生效，无需重启；编辑配置需要重启。
 
-默认所有页面的可以直接通过 `http://localhost:9100/[name].html `路径访问。
+默认所有页面的可以直接通过 `http://localhost:9100/[name].html ` 路径访问。
 
 ```javascript
 module.exports  =  {
   /**
    * key : value
-   * key 支持正则匹配
-   * value 可省略 .html后缀
+   * key 写法参考：/ ， /user ， /users/:id ， /users_:id ，/users_p_:id一个可以内变量（:id）仅可出现一次，遇到需要多个变量的情况，请选择写死多余变量来实现
+   * 冒号后即视为变量字段名称 除非使用/隔断
+   * value pages目录内的页面名称，可省略 .html后缀
    */
   '/':'index'
 }
