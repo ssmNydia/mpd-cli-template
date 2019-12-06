@@ -2,6 +2,7 @@
   "name": "{{ name }}",
   "version": "0.0.1",
   "description": "{{ description }}",
+  "mpd-cli-version": "{{ mpdvs }}",
   "scripts": {},
   "author": "{{ author }}",
   "eslintConfig": {
