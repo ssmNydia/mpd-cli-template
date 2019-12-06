@@ -2,21 +2,43 @@
   "name": "{{ name }}",
   "version": "0.0.1",
   "description": "{{ description }}",
-  "scripts": {
-    "fix": "npm run fix:js",
-    "fix:js": "eslint --ext .js . --fix"
-  },
+  "mpd-cli-version": "{{ mpdvs }}",
+  "scripts": {},
   "author": "{{ author }}",
+  "eslintConfig": {
+    "extends": [
+      "standard"
+    ],
+    "plugins": [
+      "jsdoc"
+    ],
+    "env": {
+      "browser": true,
+      "jquery": true
+    },
+    "rules": {
+      "jsdoc/check-param-names": 1,
+      "jsdoc/check-tag-names": 1,
+      "jsdoc/check-types": 1,
+      "jsdoc/newline-after-description": 1,
+      "jsdoc/no-undefined-types": 1,
+      "jsdoc/require-description-complete-sentence": 0,
+      "jsdoc/require-example": 0,
+      "jsdoc/require-hyphen-before-param-description": 0,
+      "jsdoc/require-param": 1,
+      "jsdoc/require-param-description": 1,
+      "jsdoc/require-param-name": 1,
+      "jsdoc/require-param-type": 1,
+      "jsdoc/require-returns-description": 1,
+      "jsdoc/require-returns-type": 1,
+      "jsdoc/valid-types": 1,
+      "no-var": 2,
+      "no-console": 1
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
   "dependencies": {},
-  "devDependencies": {
-    "@babel/runtime-corejs3": "^7.6.0",
-    "eslint": "^5.16.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsdoc": "^4.8.3",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.1.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "normalize.css": "^8.0.1"
-  }
+  "devDependencies": {}
 }

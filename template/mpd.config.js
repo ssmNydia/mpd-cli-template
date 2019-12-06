@@ -13,31 +13,12 @@ module.exports = {
      * @type {Array}
      * 仅global内支持 字符和对象两种类型
      */
-    global:[
-        /* 直接填入需要引入库的路径 */
-        'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
-        /* 
-        * 或填入对象，可配置 
-        * ishead放置在头部 
-        * islast 放置在所有资源的末尾 
-        * url为引入库路径 
-            e.g:
-            { ishead: true, url: 'https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js' },
-        */
-    ],
+    global:[],
     /**
      * 指定页面引入库
      * @type {Array}
      */
-    assign:[
-        {
-            pages:['index'],
-            urls:[
-                'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css',
-                'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js'
-            ]
-        }
-    ]
+    assign:[]
   },
   /*
   * dev 和 build 拥有一样的可配置项:
@@ -117,6 +98,11 @@ module.exports = {
     publicPath: {
         source: '../',
         img: '../'
-    }
+    },
+    /**
+     * 图片在指定b内的编译成base64格式 (暂未实现）
+     * @type {Number|Boolean} false时不编译base64
+     */
+    imgBase64: 1000
   }
 }
