@@ -3,7 +3,7 @@
 * @title: 
 * @Date:   2019-04-23 16:07:22
 * @Last Modified by:   shl
-* @Last Modified time: 2019-12-10 16:16:02
+* @Last Modified time: 2019-12-10 16:33:16
 */
 module.exports = {
   init: [
@@ -28,33 +28,37 @@ module.exports = {
     {
       name: 'openHttps',
       type: 'confirm',
-      message: '是否开启https',
-      prefix: '开发环境'
+      message: '是否开启https，默认n',
+      prefix: '开发环境',
+      default: false
     },
     {
       name: 'openLint',
       type: 'confirm',
-      message: '是否开启检测，推荐"No"',
+      message: '是否开启检测，默认n',
       prefix: '开发环境',
       default: false
     },
     {
       name: 'clean',
       type: 'confirm',
-      message: '打包前是否删除打包目录',
-      prefix: '生产环境'
+      message: '打包前是否删除打包目录，默认y',
+      prefix: '生产环境',
+      default: true
     },
     {
       name: 'outHtml',
       type: 'confirm',
-      message: '是否导出HTML文件',
-      prefix: '生产环境'
+      message: '是否导出HTML文件，默认y',
+      prefix: '生产环境',
+      default: true
     },
     {
       name: 'openMinify',
       type: 'confirm',
-      message: '是否启用HTML压缩',
+      message: '是否启用HTML压缩，默认n',
       prefix: '生产环境',
+      default: false,
       when: function (answers) {
         return answers.outHtml
       }
@@ -62,8 +66,9 @@ module.exports = {
     {
       name: 'favicon',
       type: 'confirm',
-      message: 'HTML页面是否设置favicon',
+      message: 'HTML页面是否设置favicon，默认n',
       prefix: '生产环境',
+      default: false,
       when: function (answers) {
         return answers.outHtml
       }
