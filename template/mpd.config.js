@@ -44,6 +44,16 @@ module.exports = {
       }
     },
     /**
+     * 启用https
+     * @type {String} 默认false
+     */
+    openHttps: {{ openHttps }},
+    /**
+     * 是否开启检查模式
+     * @type {Boolean} 默认false
+     */
+    openLint: {{ openLint }},
+    /**
      * 设置 dev服务器端口号
      * @type {Number} 默认9000
      */
@@ -70,17 +80,22 @@ module.exports = {
      * 打包前删除打包目录
      * @type {Boolean} 默认true
      */
-    clean: false,
+    clean: {{ clean }},
     /**
      * 导出HTML文件
      * @type {Boolean} 默认true
      */
-    outHtml: true,
+    outHtml: {{ outHtml }},
     /**
      * 启用HTML压缩
      * @type {Boolean} 默认false
      */
-    openMinify: false,
+    openMinify: {{ openMinify }},
+    /**
+     * HTML页面是否设置favicon
+     * @type {Boolean} 默认false
+     */
+    favicon: {{ favicon }},
     /**
      * 项目目录
      * @type {String} 默认根目录无需填写

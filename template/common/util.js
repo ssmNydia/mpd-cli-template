@@ -1,4 +1,4 @@
 /*
-* @Author: your name
+* @Author: {{ author }}
 * @title: 工具库
 */

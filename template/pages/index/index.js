@@ -1,5 +1,5 @@
 /**
- * @title {n}
+ * @title {{ pagename }}
  */
 import '@/common'
-import './index.scss'
+import './{{ pagename }}.scss'
